@@ -13,7 +13,6 @@
     *   [4. Flow of RAG - Step by Step](#4-flow-of-rag---step-by-step)
     *   [5. Use Cases of RAG](#5-use-cases-of-rag)
     *   [6. Types of RAG](#6-types-of-rag)
-        *   []
 3. [Full RAG Pipeline with LCEL](#full-rag-pipeline-with-lcel)
 4. [Assignment: Code Examples for all types of RAG](#assignment)
 
@@ -2099,7 +2098,7 @@ async for chunk in chain.astream(input):   # streaming, async
 
 # Assignment
 
-## 🚀 Project Setup with `uv` 
+## Project Setup with `uv` 
 
 > `uv` is a blazing-fast Python package manager written in Rust — it replaces `pip`, `venv`, and `pip-tools` in one tool.
 
