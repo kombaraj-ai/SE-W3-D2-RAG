@@ -2160,8 +2160,14 @@ uv python list
 ### Step 5 — Add All Required Dependencies
 
 ```bash
+# Create a virtual environment
+uv venv
+
+# Activate it
+.\.venv\Scripts\activate           # Windows
+
 # Add all LangChain + RAG dependencies in one command
-uv add langchain langchain-community langchain-core langchain-openai langchain-huggingface faiss-cpu sentence-transformers networkx duckduckgo-search
+uv add langchain langchain-community langchain-core langchain-openai langchain-huggingface faiss-cpu sentence-transformers networkx duckduckgo-search python-dotenv
 
 # uv add \
 #   langchain \
@@ -2172,7 +2178,8 @@ uv add langchain langchain-community langchain-core langchain-openai langchain-h
 #   faiss-cpu \
 #   sentence-transformers \
 #   networkx \
-#   duckduckgo-search
+#   duckduckgo-search \
+#   python-dotenv
 
 # uv automatically:
 #   ✅ Resolves dependency versions
@@ -2202,16 +2209,27 @@ echo 'OPENAI_API_KEY="sk-..."' > .env
 
 ```bash
 # Create all the Python files for this guide
-touch shared_setup.py
-touch 01_naive_rag.py
-touch 02_advanced_rag.py
-touch 03_modular_rag.py
-touch 04_self_rag.py
-touch 05_corrective_rag.py
-touch 06_fusion_rag.py
-touch 07_speculative_rag.py
-touch 08_agentic_rag.py
-touch 09_graph_rag.py
+New-Item -Path . -Name shared_setup.py -ItemType File
+New-Item -Path . -Name 01_naive_rag.py -ItemType File
+New-Item -Path . -Name 02_advanced_rag.py -ItemType File
+New-Item -Path . -Name 03_modular_rag.py -ItemType File
+New-Item -Path . -Name 04_self_rag.py -ItemType File
+New-Item -Path . -Name 05_corrective_rag.py -ItemType File
+New-Item -Path . -Name 06_fusion_rag.py -ItemType File
+New-Item -Path . -Name 07_speculative_rag.py -ItemType File
+New-Item -Path . -Name 08_agentic_rag.py -ItemType File
+New-Item -Path . -Name 09_graph_rag.py -ItemType File
+
+# touch shared_setup.py
+# touch 01_naive_rag.py
+# touch 02_advanced_rag.py
+# touch 03_modular_rag.py
+# touch 04_self_rag.py
+# touch 05_corrective_rag.py
+# touch 06_fusion_rag.py
+# touch 07_speculative_rag.py
+# touch 08_agentic_rag.py
+# touch 09_graph_rag.py
 ```
 
 Your final project structure:
@@ -2270,10 +2288,14 @@ uv tree                        # show dependency tree
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
-from langchain.schema import Document
+from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableParallel
+from dotenv import load_dotenv
+import os
 
+
+load_dotenv()
 # ── Sample documents (shared across all examples) ───────────────
 docs = [
     Document(page_content="LangChain is a framework for building LLM applications.", metadata={"source": "langchain_docs"}),
