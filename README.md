@@ -2161,16 +2161,18 @@ uv python list
 
 ```bash
 # Add all LangChain + RAG dependencies in one command
-uv add \
-  langchain \
-  langchain-community \
-  langchain-core \
-  langchain-openai \
-  langchain-huggingface \
-  faiss-cpu \
-  sentence-transformers \
-  networkx \
-  duckduckgo-search
+uv add langchain langchain-community langchain-core langchain-openai langchain-huggingface faiss-cpu sentence-transformers networkx duckduckgo-search
+
+# uv add \
+#   langchain \
+#   langchain-community \
+#   langchain-core \
+#   langchain-openai \
+#   langchain-huggingface \
+#   faiss-cpu \
+#   sentence-transformers \
+#   networkx \
+#   duckduckgo-search
 
 # uv automatically:
 #   ✅ Resolves dependency versions
